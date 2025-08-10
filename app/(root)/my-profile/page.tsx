@@ -22,7 +22,7 @@ interface BorrowedBookProps {
 
 const Page = async () => {
   const session = await auth();
-  if (!session?.user?.id) return;
+  if (!session?.user?.id) redirect("/sign-in");
 
   const [user] = await db
     .select()

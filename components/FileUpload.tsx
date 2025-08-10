@@ -14,7 +14,9 @@ import { toast } from "@/hooks/use-toast";
 
 const authenticator = async () => {
   try {
-    const response = await fetch(`${config.env.apiEndpoint}/api/auth/imagekit`);
+    const response = await fetch(
+      `${config.env.prodApiEndpoint}/api/auth/imagekit`
+    );
 
     if (!response.ok) {
       const errorText = await response.text();
@@ -121,8 +123,7 @@ const FileUpload = ({
     <ImageKitProvider
       publicKey={config.env.imagekit.publicKey}
       urlEndpoint={config.env.imagekit.urlEndpoint}
-      authenticator={authenticator}
-    >
+      authenticator={authenticator}>
       <IKUpload
         ref={ikUploadRef}
         fileName={type === "image" ? "image" : "video"}
@@ -148,8 +149,7 @@ const FileUpload = ({
             (ikUploadRef?.current as HTMLElement)?.click();
           }
         }}
-        className={cn("upload-btn", styles.button)}
-      >
+        className={cn("upload-btn", styles.button)}>
         <Image
           src="/icons/upload.svg"
           alt="upload-icon"

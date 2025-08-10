@@ -68,9 +68,7 @@ const Page = async () => {
 
             <div className="mt-10">
               <p className="text-lg text-light-100">University</p>
-              <p className="text-2xl font-semibold text-white">
-                JS Mastery Pro
-              </p>
+              <p className="text-2xl font-semibold text-white">Alexandria</p>
             </div>
 
             <div className="mt-10">
@@ -102,8 +100,7 @@ const Page = async () => {
               "use server";
               await signOut();
               redirect("/sign-in");
-            }}
-          >
+            }}>
             <Button type="submit" variant="destructive" className="logout">
               Logout
             </Button>

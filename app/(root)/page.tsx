@@ -10,6 +10,11 @@ import BookOverview from "@/components/BookOverview";
 const Home = async () => {
   const session = await auth();
 
+  if (!session?.user) {
+    // @ts-expect-error
+    return redirect("/sign-in");
+  }
+
   const latestBooks = (await db
     .select()
     .from(books)

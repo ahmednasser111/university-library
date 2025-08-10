@@ -6,14 +6,11 @@ import { books } from "@/database/schema";
 
 import BookList from "@/components/BookList";
 import BookOverview from "@/components/BookOverview";
+import { redirect } from "next/navigation";
 
 const Home = async () => {
   const session = await auth();
-
-  if (!session?.user) {
-    // @ts-expect-error
-    return redirect("/sign-in");
-  }
+  if (!session) redirect("/sign-in");
 
   const latestBooks = (await db
     .select()

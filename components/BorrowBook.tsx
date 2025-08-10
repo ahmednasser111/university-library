@@ -30,7 +30,6 @@ const BorrowBook = ({ userId, bookId, borrowingEligibility }: Props) => {
       });
       return;
     }
-
     setBorrowing(true);
     try {
       const result = await borrowBook({ bookId, userId });
@@ -64,8 +63,7 @@ const BorrowBook = ({ userId, bookId, borrowingEligibility }: Props) => {
     <Button
       className="book-overview_btn"
       onClick={handleBorrowBook}
-      disabled={borrowing}
-    >
+      disabled={borrowing}>
       <Image src="/icons/book.svg" alt="book" width={20} height={20} />
 
       <p className="font-bebas-neue text-xl text-dark-100">

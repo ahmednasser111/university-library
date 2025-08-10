@@ -24,12 +24,20 @@ const Header = ({ session }: { session: Session }) => {
             className={cn(
               "text-base cursor-pointer capitalize",
               pathname === "/library" ? "text-light-200" : "text-light-100"
-            )}
-          >
+            )}>
             library
           </Link>
         </li>
-
+        <li>
+          <Link
+            href="/admin"
+            className={cn(
+              "text-base cursor-pointer capitalize",
+              pathname === "/admin" ? "text-light-200" : "text-light-100"
+            )}>
+            admin
+          </Link>
+        </li>
         <li>
           <Link href="/my-profile">
             <Avatar name={session?.user?.name || ""} />
